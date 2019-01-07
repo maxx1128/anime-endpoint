@@ -1,3 +1,4 @@
- gem 'nokogiri'
- gem 'mail'
- gem 'test-unit'
+gem 'nokogiri'
+gem 'dotenv'
+gem 'mail'
+gem 'test-unit'

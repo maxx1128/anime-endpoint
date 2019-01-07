@@ -1,5 +1,6 @@
 GEM
   specs:
+    dotenv (2.5.0)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     mini_mime (1.0.1)
@@ -14,6 +15,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   mail
   nokogiri
   test-unit
