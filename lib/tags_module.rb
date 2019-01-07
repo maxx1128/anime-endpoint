@@ -6,7 +6,7 @@ module Tags
 
   def reading_params
     { label: "Reading",
-      params: tag_parameters(%w(smile book bookshelf glasses ''), %w(reading)) }
+      params: tag_parameters(%w(smile book bookshelf glasses), %w(reading)) }
   end
 
   def visual_novel_params
@@ -21,7 +21,7 @@ module Tags
 
   def pokemon_params
     { label: "Pokemon",
-      params: tag_parameters(%w(eevee umbreon espeon ''), %w(pokemon)) }
+      params: tag_parameters(%w(eevee umbreon espeon), %w(pokemon)) }
   end
 
   def video_games_params
@@ -40,6 +40,16 @@ module Tags
     sizing = "+height%3a>1000+height%3a<4000+width%3A>750"
     extra_tags = required_tags.map { |tag| tag.prepend('+') }.join('')
 
-    "#{sample_tags.sample}#{extra_tags}#{sfw}#{types}#{sizing}"
+    chosen_tag = if required_tags && one_in_four
+      nil
+    else
+      sample_tags.sample
+    end
+
+    "#{chosen_tag}#{extra_tags}#{sfw}#{types}#{sizing}"
+  end
+
+  def one_in_four
+    rand(1..4) == 1
   end
 end
