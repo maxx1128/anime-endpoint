@@ -1,14 +1,22 @@
 GEM
   specs:
+    mail (2.7.1)
+      mini_mime (>= 0.1.1)
+    mini_mime (1.0.1)
     mini_portile2 (2.3.0)
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
+    power_assert (0.4.1)
+    test-unit (3.2.3)
+      power_assert
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  mail
   nokogiri
+  test-unit
 
 BUNDLED WITH
    1.16.4
