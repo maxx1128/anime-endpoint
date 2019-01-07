@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/email_sender.rb'
+EmailSender.new().send_email
