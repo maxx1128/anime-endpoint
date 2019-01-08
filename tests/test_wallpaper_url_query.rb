@@ -11,6 +11,6 @@ class TestWallpaperUrlQuery < Test::Unit::TestCase
   private
 
   def query
-    WallpaperQuery.new()
+    WallpaperUrlQuery.new()
   end
 end

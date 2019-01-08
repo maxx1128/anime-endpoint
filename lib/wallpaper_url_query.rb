@@ -2,7 +2,7 @@ require 'open-uri'
 require 'nokogiri'
 require_relative 'tags_module.rb'
 
-class WallpaperQuery
+class WallpaperUrlQuery
   include Tags
   BASE_URL = "http://safebooru.org/"
   IMAGE_NOT_FOUND_URL = "https://www.readjunk.com/wp-content/uploads/2015/09/no-image-found1-900x600.png"

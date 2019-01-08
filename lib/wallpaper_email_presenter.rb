@@ -3,7 +3,7 @@ require_relative 'wallpaper_url_query.rb'
 
 class WallpaperEmailPresenter
   def initialize
-    @data = WallpaperQuery.new().get_image_urls
+    @data = WallpaperUrlQuery.new().get_image_urls
   end
 
   def full_view
