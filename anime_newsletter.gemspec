@@ -1,5 +1,5 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('./lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
@@ -14,6 +14,6 @@ Gem::Specification.new do |spec|
 
   spec.files         = ['lib/anime_newsletter.rb']
   spec.executables   = ['bin/anime_newsletter']
-  spec.test_files    = ['tests/test_anime_newsletter.rb']
+  spec.test_files    = ['spec']
   spec.require_paths = ["lib"]
 end

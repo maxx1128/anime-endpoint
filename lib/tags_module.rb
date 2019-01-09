@@ -1,4 +1,8 @@
 module Tags
+  SFW = "+-skin_tight+-ass+-cleavage+-underwear+-thigh-highs+-lingerie+-bondage+-huge_breasts"
+  TYPES = "+-comic+-translation_request+-manga"
+  SIZING = "+height%3a>1000+height%3a<4000+width%3A>750"
+
   def all_image_params
     activities = gather_tags_for("Activities", [reading_tags, computer_tags], 2)
     anime = gather_tags_for("Anime", [ddlc_tags, katawa_shoujo_tags, rwby_tags, monster_girls_tags, mirai_nikki_tags], 2)
@@ -88,11 +92,7 @@ module Tags
   private
 
   def tag_parameters(tags)
-    sfw = "+-skin_tight+-ass+-cleavage+-underwear+-thigh-highs+-lingerie+-bondage+-huge_breasts"
-    types = "+-comic+-translation_request+-manga"
-    sizing = "+height%3a>1000+height%3a<4000+width%3A>750"
-
-    "#{tags.map { |tag| tag.prepend('+') }.join('')}#{sfw}#{types}#{sizing}"
+    "#{tags.map { |tag| tag.prepend('+') }.join('')}#{SFW}#{TYPES}#{SIZING}"
   end
 
   def gather_tags_for(group_name, tag_groups, number)

@@ -1,11 +1,4 @@
-require 'rake/testtask'
 require_relative 'lib/wallpaper_email_presenter.rb'
-
-Rake::TestTask.new do |t|
-  t.libs << "tests"
-  t.test_files = FileList['tests/test*.rb']
-  t.verbose = true
-end
 
 desc "Run a test of the newsletter template"
 task :template do
