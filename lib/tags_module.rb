@@ -1,7 +1,7 @@
 module Tags
   SFW = "+-skin_tight+-ass+-cleavage+-underwear+-thigh-highs+-lingerie+-bondage+-huge_breasts"
   TYPES = "+-comic+-translation_request+-manga"
-  SIZING = "+height%3a>1000+height%3a<4000+width%3A>750"
+  SIZING = "+height%3a>500+width%3A>1000"
 
   def all_image_params
     activities = gather_tags_for("Activities", [reading_tags, computer_tags], 2)
