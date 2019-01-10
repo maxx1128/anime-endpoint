@@ -12,8 +12,8 @@ Gem::Specification.new do |spec|
   spec.homepage      = "http://maxwellantonucci.com/"
   spec.license       = "MIT"
 
-  spec.files         = ['lib/anime_newsletter.rb']
-  spec.executables   = ['bin/anime_newsletter']
-  spec.test_files    = ['spec']
+  spec.files         = ['lib']
+  spec.executables   = ['bin/send']
+  spec.test_files    = ['bin/spec']
   spec.require_paths = ["lib"]
 end
