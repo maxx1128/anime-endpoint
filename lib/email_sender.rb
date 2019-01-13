@@ -4,27 +4,28 @@ require 'dotenv/load'
 require_relative 'wallpaper_email_presenter.rb'
 
 class EmailSender
+  OPTIONS = { :address              => "smtp.gmail.com",
+              :port                 => 587,
+              :user_name            => ENV['GMAIL_USERNAME'],
+              :password             => ENV['GMAIL_PASSWORD'],
+              :authentication       => 'plain',
+              :enable_starttls_auto => true  }
 
   def initialize
-    options = { :address              => "smtp.gmail.com",
-                :port                 => 587,
-                :user_name            => ENV['GMAIL_USERNAME'],
-                :password             => ENV['GMAIL_PASSWORD'],
-                :authentication       => 'plain',
-                :enable_starttls_auto => true  }
-
     Mail.defaults do
-      delivery_method :smtp, options
+      delivery_method :smtp, OPTIONS
     end
   end
 
   def send_email
     email_body = WallpaperEmailPresenter.new().full_view
     date = current_date
+    sender = email_sender
+    recipient = email_recipient
 
     Mail.deliver do
-      from    ENV['GMAIL_USERNAME']
-      to      ENV['GMAIL_USERNAME']
+      from    sender
+      to      recipient
       subject "Email Newsletter for #{date}"
 
       html_part do
@@ -38,5 +39,15 @@ class EmailSender
     day = DateTime.now.strftime("%d")
     month = Date::MONTHNAMES[Date.today.month]
     "#{month} #{day}"
+  end
+
+  private
+
+  def email_sender
+    ENV['GMAIL_USERNAME']
+  end
+
+  def email_recipient
+    ENV['GMAIL_USERNAME']
   end
 end
