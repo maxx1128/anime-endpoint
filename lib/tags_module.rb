@@ -1,92 +1,111 @@
 module Tags
-  SFW = "+-skin_tight+-ass+-cleavage+-underwear+-thigh-highs+-lingerie+-bondage+-huge_breasts"
-  TYPES = "+-comic+-translation_request+-manga"
-  SIZING = "+height%3a>500+width%3A>1000"
-
-  def all_image_params
-    activities = gather_tags_for("Activities", [reading_tags, computer_tags], 2)
-    anime = gather_tags_for("Anime", [ddlc_tags, katawa_shoujo_tags, rwby_tags, monster_girls_tags, mirai_nikki_tags], 2)
-    gaming = gather_tags_for("Gaming", [splatoon_tags, zelda_tags, smash_bros_tags, pokemon_tags], 2)
-    extra = gather_tags_for("Extra", [portrait_tags, angel_tags, glasses_tags, random_tags], 2)
-
-    activities + anime + gaming + extra
-  end
+  SFW = "+-skin_tight+-ass+-cleavage+-underwear+-thigh-highs+-lingerie+-bondage+-huge_breasts".freeze
+  TYPES = "+-comic+-translation_request+-manga".freeze
+  SIZING = "+height%3a>500+width%3A>1000".freeze
 
   def reading_tags
+    tags = with_optional_tag(choose_one_tag(%w(reading book)), %w(smile bookshelf glasses))
+
     { name: "Reading",
-      tags: with_optional_tags(choose_one_tag(%w(reading book)), %w(smile bookshelf glasses)) }
+      tags: tag_parameters(tags) }
   end
 
   def computer_tags
+    tags = %w(computer)
+
     { name: "Computers",
-      tags: %w(computer) }
-  end
-
-  def ddlc_tags
-    { name: "Doki Doki Literature Club",
-      tags: %w(doki_doki_literature_club) }
-  end
-
-  def katawa_shoujo_tags
-    { name: "Katawa Shoujo",
-      tags: %w(katawa_shoujo) }
+      tags: tag_parameters(tags) }
   end
 
   def rwby_tags
+    tags = %w(rwby)
+
     { name: "RWBY",
-      tags: %w(rwby) }
+      tags: tag_parameters(tags) }
   end
 
   def monster_girls_tags
+    tags = %w(monster_musume_no_iru_nichijou)
+
     { name: "Daily Life with Monster Girls",
-      tags: %w(monster_musume_no_iru_nichijou) }
+      tags: tag_parameters(tags) }
   end
 
   def mirai_nikki_tags
+    tags = %w(mirai_nikki)
+
     { name: "Mirai Nikki",
-      tags: %w(mirai_nikki) }
+      tags: tag_parameters(tags) }
+  end
+
+  def ddlc_tags
+    tags = %w(doki_doki_literature_club)
+
+    { name: "Doki Doki Literature Club",
+      tags: tag_parameters(tags) }
+  end
+
+  def katawa_shoujo_tags
+    tags = %w(katawa_shoujo)
+
+    { name: "Katawa Shoujo",
+      tags: tag_parameters(tags) }
   end
 
   def splatoon_tags
+    tags = choose_one_tag(%w(splatoon splatoon_2))
+
     { name: "Splatoon",
-      tags: choose_one_tag(%w(splatoon splatoon_2)) }
+      tags: tag_parameters(tags) }
   end
 
   def zelda_tags
+    tags = %w(the_legend_of_zelda)
+
     { name: "Zelda",
-      tags: %w(the_legend_of_zelda) }
+      tags: tag_parameters(tags) }
   end
 
   def smash_bros_tags
+    tags = %w(super_smash_bros.)
+
     { name: "Super Smash Bros",
-      tags: %w(super_smash_bros.) }
+      tags: tag_parameters(tags) }
   end
 
   def pokemon_tags
+    tags = with_optional_tag(%w(pokemon), %w(eevee umbreon espeon porygon))
+
     { name: "Pokemon",
-      tags: with_optional_tags(%w(pokemon), %w(eevee umbreon espeon porygon)) }
+      tags: tag_parameters(tags) }
   end
 
   def portrait_tags
     tags = ['simple_background'].push(%w(1boy 1girl).sample)
 
     { name: "Portrait",
-      tags: tags }
+      tags: tag_parameters(tags) }
   end
 
   def angel_tags
+    tags = %w(angel wings)
+
     { name: "Angel",
-      tags: %w(angel wings) }
+      tags: tag_parameters(tags) }
   end
 
   def glasses_tags
+    tags = with_optional_tag(%w(glasses), %w(1girl heart blush smile))
+
     { name: "Glasses",
-      tags: with_optional_tags(%w(glasses), %w(1girl heart blush smile)) }
+      tags: tag_parameters(tags) }
   end
 
   def random_tags
+    tags = %w(absurdres)
+
     { name: "Random",
-      tags: %w(absurdres) }
+      tags: tag_parameters(tags) }
   end
 
   private
@@ -95,22 +114,11 @@ module Tags
     "#{tags.map { |tag| tag.prepend('+') }.join('')}#{SFW}#{TYPES}#{SIZING}"
   end
 
-  def gather_tags_for(group_name, tag_groups, number)
-    tags = tag_groups.sample(number)
-
-    presented_tags = tags.map do |item, all_tags|
-      {
-        label: "#{item[:name]} (#{group_name})",
-        params: tag_parameters(item[:tags])
-      }
-    end
-  end
-
   def choose_one_tag(tags)
     [tags.sample]
   end
 
-  def with_optional_tags(tags, extra_tags)
+  def with_optional_tag(tags, extra_tags)
     one_in_three = (rand(1..3) == 1)
 
     if one_in_three

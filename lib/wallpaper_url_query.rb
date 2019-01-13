@@ -5,27 +5,24 @@ require_relative 'tags_module.rb'
 class WallpaperUrlQuery
   include Tags
   BASE_URL = "http://safebooru.org/"
-  IMAGE_NOT_FOUND_URL = "https://www.readjunk.com/wp-content/uploads/2015/09/no-image-found1-900x600.png"
 
-  def get_image_urls
-    all_image_params.each do |image|
-      image[:url] = get_image_url(image[:params])
+  def initialize(tags = random_tags[:tags])
+    url = "#{BASE_URL}index.php?page=post&s=list&tags=#{tags}"
+    @results_page = InitialResultsPage.new(url, tags)
+  end
+
+  def random_image
+    if @results_page.has_any_pages?
+      random_page = @results_page.random_page_url
+      results_page = RandomResultsPage.new(random_page)
+
+      results_page.random_image
+    else
+      { error_message: 'No images here!' }
     end
   end
 
   private
-
-  def get_image_url(tags = reading_params)
-    url = "#{BASE_URL}index.php?page=post&s=list&tags=#{tags}"
-    query_results_page = InitialResultsPage.new(url, tags)
-
-    if query_results_page.has_multiple_pages?
-      random_page = query_results_page.random_page_url
-      RandomResultsPage.new(random_page).random_image
-    else
-      IMAGE_NOT_FOUND_URL
-    end
-  end
 
   InitialResultsPage = Struct.new(:url, :tags) do
     def page
@@ -36,15 +33,23 @@ class WallpaperUrlQuery
       page.css('.pagination a:last-of-type').any?
     end
 
+    def has_any_pages?
+      page.css('.pagination').any?
+    end
+
     def total_pages
       last_page_href = page.css('.pagination a:last-of-type').attribute('href').to_s
       pid_limit = last_page_href.split('pid=')[1].to_i
     end
 
     def random_page_url
-      possible_pages = (total_pages / 40)
-      random_page_pid = rand(0..possible_pages) * 40
-      "#{url}&pid=#{random_page_pid}"
+      if has_multiple_pages?
+        possible_pages = (total_pages / 20)
+        random_page_pid = rand(1..possible_pages) * 20
+        (random_page_pid == 20) ? url : "#{url}&pid=#{random_page_pid}"
+      else
+        url
+      end
     end
   end
 

@@ -1,12 +1,36 @@
 require_relative '../lib/wallpaper_url_query.rb'
 
 describe WallpaperUrlQuery do
-  before :each do
-    @query = WallpaperUrlQuery.new()
+  let(:query) { WallpaperUrlQuery.new() }
+
+  it 'should return an image url' do
+    image = query.random_image
+
+    expect(image).to be_a(String)
+    expect(image).to include(WallpaperUrlQuery::BASE_URL)
+    expect(image).to include('.jpg').or include('.png')
   end
 
-  it 'should return URLs' do
-    urls = @query.get_image_urls
-    expect(urls).not_to be_empty
+  it 'should give different images from the same object' do
+    image1 = query.random_image
+    image2 = query.random_image
+
+    expect(image1).not_to eq(image2)
+  end
+
+  context 'when no result can be found' do
+    impossible_tags = {
+      label: "No Results",
+      params: "+nothing+false+impossible+empty" }
+
+    let(:query) { WallpaperUrlQuery.new(impossible_tags) }
+
+    it 'returns a hash notifying there is nothing' do
+      result = query.random_image
+      message = result[:error_message]
+
+      expect(result).to include(:error_message)
+      expect(message).to be_a(String)
+    end
   end
 end
