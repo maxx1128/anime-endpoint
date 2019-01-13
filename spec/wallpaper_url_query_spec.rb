@@ -20,8 +20,8 @@ describe WallpaperUrlQuery do
 
   context 'when no result can be found' do
     impossible_tags = {
-      label: "No Results",
-      params: "+nothing+false+impossible+empty" }
+      name: "No Results",
+      tags: "+nothing+false+impossible+empty+leijfoqd" }
 
     let(:query) { WallpaperUrlQuery.new(impossible_tags) }
 

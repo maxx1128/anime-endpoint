@@ -25,7 +25,12 @@ class WallpaperEmailPresenter
       image = WallpaperUrlQuery.new(tags).random_image
 
       view = "<h3>#{tag_group[:name]}</h3>"
-      view << "<img src=#{image} style='display: block; max-width: 100%; margin: 0 auto;' />"
+
+      if image.is_a?(Hash)
+        view << "<p class='error-message'><strong>No image found here!</strong></p>"
+      else
+        view << "<img src=#{image} style='display: block; max-width: 100%; margin: 0 auto;' />"
+      end
     end
 
     all_views.join('')
