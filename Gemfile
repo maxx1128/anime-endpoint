@@ -1,6 +1,6 @@
-source "https://rubygems.org"
-
-gem 'nokogiri'
-gem 'dotenv'
-gem 'rspec'
-gem 'mail'
+source "https://rubygems.org" do
+  gem 'rspec'
+  gem 'nokogiri'
+  gem 'dotenv'
+  gem 'mail'
+end
