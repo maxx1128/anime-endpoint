@@ -7,12 +7,15 @@ class WallpaperEmailPresenter
 
   def random_tag_groups
     activity = [reading_tags, computer_tags].sample
-    anime = [rwby_tags, monster_girls_tags, mirai_nikki_tags].sample
     gaming_1 = [ddlc_tags, katawa_shoujo_tags].sample
     gaming_2 = [splatoon_tags, zelda_tags, smash_bros_tags, pokemon_tags].sample
     extra = [portrait_tags, angel_tags, glasses_tags].sample
 
-    [activity, anime, gaming_1, gaming_2, extra, random_tags, random_tags]
+    anime = [rwby_tags, monster_girls_tags, mirai_nikki_tags, infinite_stratos_tags].sample(2)
+
+    single_items = [activity, gaming_1, gaming_2, extra, visual_novel_art_tags, random_tags]
+
+    [anime, single_items].flatten
   end
 
   def full_view

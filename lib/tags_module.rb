@@ -31,6 +31,13 @@ module Tags
       tags: tag_parameters(tags) }
   end
 
+  def infinite_stratos_tags
+    tags = %w(infinite_stratos)
+
+    { name: "Infinite Stratos",
+      tags: tag_parameters(tags) }
+  end
+
   def mirai_nikki_tags
     tags = %w(mirai_nikki)
 
@@ -105,6 +112,13 @@ module Tags
     tags = %w(absurdres)
 
     { name: "Random",
+      tags: tag_parameters(tags) }
+  end
+
+  def visual_novel_art_tags
+    tags = %w(game_cg)
+
+    { name: "Visual Novel Art",
       tags: tag_parameters(tags) }
   end
 
