@@ -48,6 +48,6 @@ class EmailSender
   end
 
   def email_recipient
-    ENV['GMAIL_USERNAME']
+    ENV['RECIPIENT_EMAIL']
   end
 end
