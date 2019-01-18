@@ -5,4 +5,6 @@ rake template     # Create an example email in the `demo` folder as a webpage
 bin/send          # Send an email newsletter
 
 bin/test          # Run the tests to make sure it works!
+
+git push heroku master  # Update Heroku hosted version that runs script daily
 ```
