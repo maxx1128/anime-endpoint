@@ -11,7 +11,7 @@ class WallpaperEmailPresenter
     gaming = [ddlc_tags, katawa_shoujo_tags, splatoon_tags, zelda_tags, smash_bros_tags, pokemon_tags].sample
     extra = [portrait_tags, angel_tags, glasses_tags].sample
 
-    [activity, gaming, extra, visual_novel_art_tags, random_tags]
+    [activity, gaming, anime, extra, visual_novel_art_tags, random_tags]
   end
 
   def full_view
