@@ -108,10 +108,31 @@ module Tags
       tags: tag_parameters(tags) }
   end
 
-  def random_tags
+  def happy_tags
+    tags = choose_one_tag(%w(smile heart heart_hands wink))
+
+    { name: "Happy",
+      tags: tag_parameters(tags) }
+  end
+
+  def sad_tags
+    tags = choose_one_tag(%w(sad tears crying))
+
+    { name: "Sad",
+      tags: tag_parameters(tags) }
+  end
+
+  def outdoor_tags
+    tags = %w(outdoors)
+
+    { name: "Outdoors",
+      tags: tag_parameters(tags) }
+  end
+
+  def absurdres_tags
     tags = %w(absurdres)
 
-    { name: "Random",
+    { name: "Absurdres",
       tags: tag_parameters(tags) }
   end
 
@@ -119,6 +140,20 @@ module Tags
     tags = %w(game_cg)
 
     { name: "Visual Novel Art",
+      tags: tag_parameters(tags) }
+  end
+
+  def chibi_tags
+    tags = %w(chibi)
+
+    { name: "Chibi",
+      tags: tag_parameters(tags) }
+  end
+
+  def random_tags
+    tags = []
+
+    { name: "Random",
       tags: tag_parameters(tags) }
   end
 

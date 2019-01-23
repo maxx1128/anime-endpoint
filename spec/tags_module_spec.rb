@@ -29,16 +29,4 @@ describe Tags do
       expect(tags).to include(Tags::SFW, Tags::TYPES, Tags::SIZING)
     end
   end
-
-  it 'should have additional tags aside from required ones' do
-    @all_tag_methods.each do |method_name|
-      method = @Tags.send(method_name)
-      tags = method[:tags]
-      tags.slice! (Tags::SFW + Tags::TYPES + Tags::SIZING)
-      base_params = tags.split('+').reject { |p| p.empty? }
-
-      expect(base_params).to be_an(Array)
-      expect(base_params.length).to be >= 1
-    end
-  end
 end
