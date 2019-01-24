@@ -150,6 +150,13 @@ module Tags
       tags: tag_parameters(tags) }
   end
 
+  def nurse_tags
+    tags = %w(nurse)
+
+    { name: "Nurse",
+      tags: tag_parameters(tags) }
+  end
+
   def random_tags
     tags = []
 

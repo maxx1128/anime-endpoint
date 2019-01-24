@@ -10,7 +10,7 @@ class WallpaperEmailPresenter
     personals = [rwby_tags, monster_girls_tags, mirai_nikki_tags, infinite_stratos_tags, ddlc_tags, katawa_shoujo_tags, splatoon_tags, zelda_tags, smash_bros_tags, pokemon_tags].sample
     extra = [portrait_tags, angel_tags, glasses_tags].sample
 
-    [absurdres_tags, activity, personals, extra, outdoor_tags, chibi_tags, happy_tags, sad_tags, visual_novel_art_tags, random_tags]
+    [absurdres_tags, activity, personals, extra, outdoor_tags, nurse_tags, chibi_tags, happy_tags, sad_tags, visual_novel_art_tags, random_tags]
   end
 
   def full_view
