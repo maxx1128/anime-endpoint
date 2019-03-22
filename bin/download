@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/mass_download_saver.rb'
+
+number = ARGV[0].to_i || 10;
+
+MassDownloadSaver.new(number).download_images
