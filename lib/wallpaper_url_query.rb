@@ -6,8 +6,8 @@ class WallpaperUrlQuery
   include Tags
   BASE_URL = "http://safebooru.org/"
 
-  def initialize(tags = random_tags[:tags])
-    url = "#{BASE_URL}index.php?page=post&s=list&tags=#{tags}"
+  def initialize(tags = random_tags[:tags], extra_params = '')
+    url = "#{BASE_URL}index.php?page=post&s=list&tags=#{tags}#{extra_params}"
     @results_page = InitialResultsPage.new(url, tags)
   end
 
