@@ -8,7 +8,5 @@ get '/' do
   tags = parameters.give_tags
   image_url = WallpaperUrlQuery.new(tags).random_image
 
-  # "<img src=#{image_url} />"
-
   redirect image_url
 end
