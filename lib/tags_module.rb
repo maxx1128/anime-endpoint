@@ -1,6 +1,6 @@
 module Tags
-  SFW = "+-skin_tight+-ass+-cleavage+-underwear+-thigh-highs+-lingerie+-bondage+-huge_breasts+-miniskirt+-impossible_clothes+-swimsuit+-bikini+-kiss+-panties+-panty*+-breast_*".freeze
-  TYPES = "+-comic+-translation_request+-manga+-simple_background".freeze
+  SFW = "+-skin_tight+-ass+-cleavage+-underwear+-thigh-highs+-lingerie+-bondage+-nude+-sideboob+-hands_on_breasts+-see-through+-thighs+-huge_breasts+-miniskirt+-impossible_clothes+-swimsuit+-bikini+-kiss+-panties+-panty*+-breast_*".freeze
+  TYPES = "+-comic+-translation_request+-manga".freeze
   SIZING = "+height%3a>500+width%3A>1000".freeze
 
   def reading_tags
