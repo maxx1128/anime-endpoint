@@ -65,7 +65,7 @@ class WallpaperUrlQuery
     def random_image
       image_page_url = all_results.sample
       image_page = Nokogiri::HTML.parse(open(image_page_url))
-      image_page.css('#image').attribute('src').to_s.sub('//safebooru.org/', BASE_URL)
+      image_page.css('#image').attribute('src').to_s
     end
   end
 end
