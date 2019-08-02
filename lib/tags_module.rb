@@ -1,7 +1,7 @@
 module Tags
-  SFW = "+-skin_tight+-ass+-cleavage+-underwear+-thigh-highs+-lingerie+-bondage+-nude+-sideboob+-hands_on_breasts+-see-through+-thighs+-huge_breasts+-miniskirt+-impossible_clothes+-swimsuit+-bikini+-kiss+-panties+-panty*+-breast_*".freeze
-  TYPES = "+-comic+-translation_request+-manga".freeze
-  SIZING = "+height%3a>500+width%3A>1000".freeze
+  SFW = "+-skin_tight+-ass+-cleavage+-underwear+-thigh-highs+-lingerie+-bondage+-nude+-sideboob+-hands_on_breasts+-see-through+-thighs+-huge_breasts+-miniskirt+-impossible_clothes+-swimsuit+-bikini+-kiss+-panties+-panty*+-breast_*+-sexually_suggestive".freeze
+  TYPES = "+-comic+-manga+-long_image+-tall_image+-character_sheet".freeze
+  SIZING = "+height%3a>500+width%3A>500".freeze
 
   def reading_tags
     tags = with_optional_tag(choose_one_tag(%w(reading book)), %w(smile bookshelf glasses))
