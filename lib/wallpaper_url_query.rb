@@ -4,7 +4,7 @@ require_relative 'tags_module.rb'
 
 class WallpaperUrlQuery
   include Tags
-  BASE_URL = "http://safebooru.org/"
+  BASE_URL = "https://safebooru.org/"
 
   def initialize(tags = random_tags[:tags], extra_params = '')
     url = "#{BASE_URL}index.php?page=post&s=list&tags=#{tags}#{extra_params}"
