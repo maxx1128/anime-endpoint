@@ -7,9 +7,10 @@ describe WallpaperEmailPresenter do
 
   let(:presenter) { WallpaperEmailPresenter.new() }
   let(:markup) { Nokogiri::HTML.parse(presenter.full_view) }
+  let(:all_random_tags) { [random_tags, random_tags] }
 
   before :each do
-    allow(presenter).to receive(:random_tag_groups).and_return([random_tags, random_tags])
+    allow(presenter).to receive(:random_tag_groups).and_return(all_random_tags)
   end
 
   it 'should have a title' do
@@ -19,7 +20,7 @@ describe WallpaperEmailPresenter do
 
   it 'should have valid images' do
     all_images = markup.css('img')
-    expect(all_images.length).to eq(2)
+    expect(all_images.length).to eq(all_random_tags.length)
 
     all_images.each do |img|
       src = img.attribute('src').to_s
