@@ -15,6 +15,17 @@ class MassDownloadSaver
     [reading_tags, glasses_tags, happy_tags, sad_tags, outdoor_tags, absurdres_tags, random_tags]
   end
 
+  def download_images
+    FileUtils.mkdir_p('downloads') unless Dir.exists?('downloads')
+
+    @image_limit.times do
+      tags = random_tag_groups.sample[:tags]
+      image = WallpaperUrlQuery.new(tags).random_image
+      random_number = Random.rand(9999999999)
+      File.write "downloads/#{random_number}-image.jpg", open(image).read
+    end
+  end
+
   def image_group
     image_urls = []
 
@@ -24,13 +35,5 @@ class MassDownloadSaver
     end
 
     image_urls
-  end
-
-  def download_images
-    FileUtils.mkdir_p('downloads') unless Dir.exists?('downloads')
-    image_group.map do |image|
-      random_number = Random.rand(9999999999)
-      File.write "downloads/#{random_number}-image.jpg", open(image).read
-    end
   end
 end
