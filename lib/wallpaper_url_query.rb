@@ -13,7 +13,7 @@ class WallpaperUrlQuery
   end
 
   def random_image
-    no_results ? error_message : get_image
+    no_results ? WallpaperUrlQuery.new().random_image : get_image
   end
 
   private

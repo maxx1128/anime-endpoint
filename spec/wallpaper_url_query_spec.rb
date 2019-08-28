@@ -25,12 +25,12 @@ describe WallpaperUrlQuery do
 
     let(:query) { WallpaperUrlQuery.new(impossible_tags) }
 
-    it 'returns a hash notifying there is nothing' do
+    it 'returns a random image instead' do
       result = query.random_image
-      message = result[:error_message]
 
-      expect(result).to include(:error_message)
-      expect(message).to be_a(String)
+      expect(result).to be_a(String)
+      expect(result).to include(WallpaperUrlQuery::BASE_URL)
+      expect(result).to include('.jpg').or include('.png')
     end
   end
 end
