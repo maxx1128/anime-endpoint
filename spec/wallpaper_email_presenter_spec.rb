@@ -37,7 +37,7 @@ describe WallpaperEmailPresenter do
   end
 
   context 'if a tag returns no image' do
-    it 'should have an error message for only those images' do
+    it 'should still return two images' do
       impossible_tags = {
         name: "No Results",
         tags: "+nothing+false+impossible+empty+qwkefjqiwdiqwhud"
@@ -46,8 +46,8 @@ describe WallpaperEmailPresenter do
 
       number_of_images = markup.css('img').length
       number_of_errors = markup.css('.error-message').length
-      expect(number_of_images).to eq(1)
-      expect(number_of_errors).to eq(1)
+      expect(number_of_images).to eq(2)
+      expect(number_of_errors).to eq(0)
     end
   end
 end
