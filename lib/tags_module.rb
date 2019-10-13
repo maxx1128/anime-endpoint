@@ -1,6 +1,6 @@
 module Tags
-  SFW = "+-skin_tight+-ass+-cleavage+-underwear+-thigh-highs+-lingerie+-bondage+-nude+-sideboob+-hands_on_breasts+-see-through+-thighs+-thigh_gap+-huge_breasts+-miniskirt+-impossible_clothes+-shorts+-swimsuit+-bikini+-kiss+-panties+-panty*+-breast*+-sexually_suggestive+-blood+-looking_at_viewer".freeze
-  TYPES = "+-comic+-manga+-long_image+-tall_image+-character_sheet".freeze
+  SFW = "+-skin_tight+-ass+-cleavage+-underwear+-thigh-highs+-lingerie+-bondage+-nude+-sideboob+-hands_on_breasts+-see-through+-thighs+-thigh_gap+-huge_breasts+-miniskirt+-impossible_clothes+-shorts+-swimsuit+-bikini+-kiss+-panties+-panty*+-breast*+-sexually_suggestive+-blood+-looking_at_viewer+-leotard*+-*leotard+-highleg*+-tongue_out+-gym_uniform+-navel+-facing_viewer+-yaoi*+-yuri*+-fishnets+-finger_biting+-gun+-shirtless+-undone_belt+-crop_top+-shackles+-school_uniform+-heart_in_eye".freeze
+  TYPES = "+-comic+-manga+-long_image+-tall_image+-character_sheet+-character_name".freeze
   SIZING = "+height%3a>500+width%3A>500".freeze
 
   def reading_tags
