@@ -10,6 +10,13 @@ module Tags
       tags: tag_parameters(tags) }
   end
 
+  def scenery_tags
+    tags = %w(absurdres scenery)
+
+    { name: "Scenery",
+      tags: tag_parameters(tags) }
+  end
+
   def computer_tags
     tags = %w(computer)
 
