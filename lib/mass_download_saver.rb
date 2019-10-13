@@ -22,7 +22,15 @@ class MassDownloadSaver
       tags = random_tag_groups.sample[:tags]
       image = WallpaperUrlQuery.new(tags).random_image
       random_number = Random.rand(9999999999)
+
+      begin
+      Timeout::timeout(10) do
+        #do something here to get $results
       File.write "downloads/#{random_number}-image.jpg", open(image).read
+    end
+      rescue Timeout::Error
+        next # although I am not sure why this is needed.
+      end
     end
   end
 
