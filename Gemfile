@@ -7,4 +7,5 @@ source "https://rubygems.org" do
   gem 'mail'
   gem 'sinatra'
   gem 'sinatra-contrib'
+  gem 'pry'
 end
