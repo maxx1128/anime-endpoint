@@ -1,7 +1,7 @@
 ruby '3.1.3'
 source "https://rubygems.org" do
   gem 'rspec'
-  gem "nokogiri", ">= 1.10.4"
+  gem "nokogiri"
   gem 'httparty'
   gem 'dotenv'
   gem 'mail'

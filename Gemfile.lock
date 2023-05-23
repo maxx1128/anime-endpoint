@@ -64,7 +64,7 @@ DEPENDENCIES
   dotenv!
   httparty!
   mail!
-  nokogiri (>= 1.10.4)!
+  nokogiri!
   pry!
   rspec!
   sinatra!
