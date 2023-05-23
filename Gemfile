@@ -1,4 +1,4 @@
-ruby '2.4.3'
+ruby '2.6.6'
 source "https://rubygems.org" do
   gem 'rspec'
   gem "nokogiri", ">= 1.10.4"
