@@ -26,7 +26,7 @@ class MassDownloadSaver
       begin
       Timeout::timeout(10) do
         #do something here to get $results
-      File.write "downloads/#{random_number}-image.jpg", open(image).read
+      File.write "downloads/#{random_number}-image.jpg", URI.open(image).read
     end
       rescue Timeout::Error
         next # although I am not sure why this is needed.

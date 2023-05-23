@@ -27,7 +27,7 @@ class WallpaperUrlQuery
   end
 
   def image_limit
-    page = Nokogiri::HTML.parse(open(@base_url))
+    page = Nokogiri::HTML.parse(URI.open(@base_url))
     page.css('posts').attribute('count').to_s.to_i
   end
 
